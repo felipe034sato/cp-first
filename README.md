@@ -1,137 +1,63 @@
-# Person API
+📦 Product API
 
-API REST desenvolvida com Spring Boot para gerenciamento de pessoas.
+API REST desenvolvida com Spring Boot para gerenciamento de produtos.
 
----
+🚀 Tecnologias
+Java 17+
+Spring Boot
+Spring Data JPA
+MySQL
+HeidiSQL
+⚙️ Como rodar o projeto
+1. Criar o banco de dados
 
-## 🚀 Tecnologias
+Abra o MySQL (HeidiSQL ou outro) e execute:
 
-* Java 17+
-* Spring Boot
-* Spring Data JPA
-* MySQL
-* Docker
-
----
-
-## ⚙️ Como rodar o projeto
-
-### 1. Subir o banco de dados com Docker
-
-Na raiz do projeto, execute:
-
-```bash
-docker-compose up -d
-```
-
----
-
-### 2. Configuração do banco
+CREATE DATABASE cpfirst;
+2. Configuração do banco
 
 A aplicação está configurada para conectar automaticamente ao MySQL:
 
-```
 Banco: cpfirst
 Usuário: root
-Senha: root
+Senha: Lipe@123
 Porta: 3306
-```
-
----
-
-### 3. Rodar a aplicação
+URL: jdbc:mysql://localhost:3306/cpfirst?useTimezone=true&serverTimezone=UTC
+3. Rodar a aplicação
 
 Via terminal:
 
-```bash
 mvn spring-boot:run
-```
 
-Ou execute pela sua IDE (IntelliJ, Eclipse).
+Ou execute pela sua IDE.
 
----
-
-### 4. Acessar a API
-
-```
-http://localhost:8080/person
-```
-
----
-
-## 📌 Endpoints
-
-### GET - Listar todos
-
-```
-GET /person
-```
-
-### GET - Buscar por ID
-
-```
-GET /person/{id}
-```
-
-### POST - Criar
-
-```
-POST /person
-```
+4. Acessar a API
+http://localhost:8081/product
+📌 Endpoints
+GET - Listar todos
+GET /product
+GET - Buscar por ID
+GET /product/{id}
+POST - Criar
+POST /product
 
 Exemplo:
 
-```json
 {
-  "firstName": "Felipe",
-  "lastName": "Gasparetto",
-  "address": "São Paulo",
-  "gender": "Male"
+  "name": "Notebook",
+  "description": "Notebook Gamer",
+  "price": 4500.0,
+  "quantity": 10,
+  "category": "Eletrônicos"
 }
-```
+PUT - Atualizar
+PUT /product
+DELETE - Remover
+DELETE /product/{id}
 
-### PUT - Atualizar
 
-```
-PUT /person
-```
-
-### DELETE - Remover
-
-```
-DELETE /person/{id}
-```
-
----
-
-## 🐳 Docker (Banco de Dados)
-
-Arquivo `docker-compose.yml`:
-
-```yaml
-version: '3.8'
-
-services:
-  mysql:
-    image: mysql:8.0
-    container_name: mysql_cpfirst
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cpfirst
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-volumes:
-  mysql_data:
-```
-
----
-
-## 📌 Observações
-
-* Certifique-se de que a porta 3306 está livre
-* O banco é criado automaticamente
-* As tabelas são geradas automaticamente pelo Hibernate
+📌 Observações
+Certifique-se de que o MySQL está rodando
+A aplicação roda na porta 8081
+O banco deve ser criado manualmente
+As tabelas são criadas automaticamente pelo Hibernate
