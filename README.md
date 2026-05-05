@@ -1,6 +1,6 @@
-📦 Product API
+👤 Person API
 
-API REST desenvolvida com Spring Boot para gerenciamento de produtos.
+API REST desenvolvida com Spring Boot para gerenciamento de pessoas.
 
 🚀 Tecnologias
 Java 17+
@@ -32,29 +32,27 @@ mvn spring-boot:run
 Ou execute pela sua IDE.
 
 4. Acessar a API
-http://localhost:8081/product
+http://localhost:8081/person
 📌 Endpoints
 GET - Listar todos
-GET /product
+GET /person
 GET - Buscar por ID
-GET /product/{id}
+GET /person/{id}
 POST - Criar
-POST /product
+POST /person
 
 Exemplo:
 
 {
-  "name": "Notebook",
-  "description": "Notebook Gamer",
-  "price": 4500.0,
-  "quantity": 10,
-  "category": "Eletrônicos"
+  "firstName": "Felipe",
+  "lastName": "Gasparetto",
+  "address": "São Paulo",
+  "gender": "Male"
 }
 PUT - Atualizar
-PUT /product
+PUT /person
 DELETE - Remover
-DELETE /product/{id}
-
+DELETE /person/{id}
 
 📌 Observações
 Certifique-se de que o MySQL está rodando
